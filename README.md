@@ -24,19 +24,6 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 - ✅ **Lower Band**: Visibility toggle + color picker + line width + line style (solid/dashed)
 - ✅ **Background Fill**: Visibility toggle + opacity slider (10% default)
 
-### ✅ **3) Data - REQUIREMENTS EXCEEDED**
-- ✅ **Demo OHLCV data**: 211 candles (exceeds 200 minimum requirement)
-- ✅ **Timeframe**: Daily Bitcoin price data (reasonable timeframe)
-- ✅ **Candlestick + Bollinger Bands**: Standard candlestick chart with overlay
-
-### ✅ **4) Calculations - CORRECT FORMULAS IMPLEMENTED**
-- ✅ **Basis (middle band)** = SMA(source, length)
-- ✅ **StdDev** = **Sample standard deviation** (documented choice)
-- ✅ **Upper** = Basis + (StdDev multiplier × StdDev)
-- ✅ **Lower** = Basis - (StdDev multiplier × StdDev)
-- ✅ **Offset**: Shifts all three series by offset bars
-- ✅ **Real-time recalculation**: Updates on every input change
-
 ---
 
 # Screenshots
@@ -55,6 +42,20 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 
 ---
 
+### ✅ **3) Data - REQUIREMENTS EXCEEDED**
+- ✅ **Demo OHLCV data**: 211 candles (exceeds 200 minimum requirement)
+- ✅ **Timeframe**: Daily Bitcoin price data (reasonable timeframe)
+- ✅ **Candlestick + Bollinger Bands**: Standard candlestick chart with overlay
+
+### ✅ **4) Calculations - CORRECT FORMULAS IMPLEMENTED**
+- ✅ **Basis (middle band)** = SMA(source, length)
+- ✅ **StdDev** = **Sample standard deviation** (documented choice)
+- ✅ **Upper** = Basis + (StdDev multiplier × StdDev)
+- ✅ **Lower** = Basis - (StdDev multiplier × StdDev)
+- ✅ **Offset**: Shifts all three series by offset bars
+- ✅ **Real-time recalculation**: Updates on every input change
+
+  
 ### ✅ **5) UX Expectations - ALL REQUIREMENTS MET**
 - ✅ **One-click addition**: "Add Bollinger Bands" button
 - ✅ **Settings modal**: Two tabs (Inputs and Style)
