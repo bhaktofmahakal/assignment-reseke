@@ -56,6 +56,19 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 - ✅ **Code Quality**: Type-safe, modular `computeBollingerBands()` utility, readable structure
 - ✅ **KLineCharts Only**: No alternative charting libraries used
 
+# Screenshots
+
+<div align="center">
+  <img src="images/1.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
+
+</div>
+<div align="center">
+  <img src="images/2.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
+ 
+</div>
+
+
+
 ## Setup & Run Instructions
 
 ```bash
