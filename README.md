@@ -37,6 +37,24 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 - ✅ **Offset**: Shifts all three series by offset bars
 - ✅ **Real-time recalculation**: Updates on every input change
 
+---
+
+# Screenshots
+
+<div align="center">
+  <img src="images/1.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
+
+</div>
+<div align="center">
+  <img src="images/2.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
+</div>
+<div align="center">
+  <img src="images/3.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
+</div>
+
+
+---
+
 ### ✅ **5) UX Expectations - ALL REQUIREMENTS MET**
 - ✅ **One-click addition**: "Add Bollinger Bands" button
 - ✅ **Settings modal**: Two tabs (Inputs and Style)
@@ -55,20 +73,6 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 - ✅ **Performance**: Smooth interaction with 211 candles, no jank on settings changes
 - ✅ **Code Quality**: Type-safe, modular `computeBollingerBands()` utility, readable structure
 - ✅ **KLineCharts Only**: No alternative charting libraries used
-
-# Screenshots
-
-<div align="center">
-  <img src="images/1.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
-
-</div>
-<div align="center">
-  <img src="images/2.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
-</div>
-<div align="center">
-  <img src="images/3.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
-</div>
-
 
 
 ## Setup & Run Instructions
