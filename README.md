@@ -64,7 +64,9 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 </div>
 <div align="center">
   <img src="images/2.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
- 
+</div>
+<div align="center">
+  <img src="images/3.png" alt="Chat Interface" width="80%" style="border:1px solid #ccc; border-radius:10px;" />
 </div>
 
 
