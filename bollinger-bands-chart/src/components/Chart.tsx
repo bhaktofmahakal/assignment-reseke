@@ -9,14 +9,12 @@ interface ChartProps {
   data: OHLCVData[];
   bollingerSettings: BollingerBandsSettings;
   showBollinger: boolean;
-  onCrosshairChange?: (data: Record<string, unknown>) => void;
 }
 
 const Chart: React.FC<ChartProps> = ({ 
   data, 
   bollingerSettings, 
-  showBollinger,
-  onCrosshairChange 
+  showBollinger
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstanceRef = useRef<unknown>(null);
