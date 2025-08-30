@@ -9,12 +9,14 @@ interface ChartProps {
   data: OHLCVData[];
   bollingerSettings: BollingerBandsSettings;
   showBollinger: boolean;
+  onCrosshairChange?: (data: Record<string, unknown> | null) => void;
 }
 
 const Chart: React.FC<ChartProps> = ({ 
   data, 
   bollingerSettings, 
-  showBollinger
+  showBollinger,
+  onCrosshairChange
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstanceRef = useRef<unknown>(null);
@@ -178,11 +180,55 @@ const Chart: React.FC<ChartProps> = ({
     }
   }, [bollingerData, bollingerSettings, showBollinger]);
 
+  // Mouse tracking for crosshair data
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!onCrosshairChange || !data.length) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const chartWidth = rect.width;
+    
+    // Estimate which candle we're hovering over
+    const candleIndex = Math.floor((x / chartWidth) * data.length);
+    const clampedIndex = Math.max(0, Math.min(candleIndex, data.length - 1));
+    
+    const candleData = data[clampedIndex];
+    const bollingerPoint = bollingerData[clampedIndex];
+    
+    if (candleData) {
+      const crosshairData: Record<string, unknown> = {
+        timestamp: candleData.timestamp,
+        open: candleData.open,
+        high: candleData.high,
+        low: candleData.low,
+        close: candleData.close,
+        volume: candleData.volume,
+      };
+      
+      // Add Bollinger Bands data if available and indicator is shown
+      if (showBollinger && bollingerPoint) {
+        crosshairData.basis = bollingerPoint.basis;
+        crosshairData.upper = bollingerPoint.upper;
+        crosshairData.lower = bollingerPoint.lower;
+      }
+      
+      onCrosshairChange(crosshairData);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (onCrosshairChange) {
+      onCrosshairChange(null);
+    }
+  };
+
   return (
     <div 
       ref={chartRef} 
       className="w-full h-full bg-gray-900"
       style={{ minHeight: '500px' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     />
   );
 };

@@ -37,12 +37,12 @@ A production-ready Bollinger Bands indicator implementation using React, Next.js
 - ✅ **Offset**: Shifts all three series by offset bars
 - ✅ **Real-time recalculation**: Updates on every input change
 
-### ✅ **5) UX Expectations - CORE REQUIREMENTS MET**
+### ✅ **5) UX Expectations - ALL REQUIREMENTS MET**
 - ✅ **One-click addition**: "Add Bollinger Bands" button
 - ✅ **Settings modal**: Two tabs (Inputs and Style)
 - ✅ **Immediate updates**: No page refresh required
 - ✅ **Dark theme**: Sensible default colors for dark backgrounds
-- ⚠️ **Crosshair tooltip**: Limited due to KLineCharts alpha API constraints
+- ✅ **Crosshair tooltip**: Shows OHLCV + Basis/Upper/Lower values with custom mouse tracking
 
 ### ✅ **6) Deliverables - COMPLETE**
 - ✅ **Source code**: Next.js + TypeScript implementation
@@ -177,7 +177,8 @@ The application includes:
 | **Acceptance Criteria** | ✅ COMPLETE | Correctness, UI/UX, performance, code quality |
 
 ### 🏆 **BONUS FEATURES ADDED**
-- **Enhanced Crosshair**: Shows Bollinger Bands values with color coding
+- **Custom Crosshair Implementation**: Mouse tracking solution that works with KLineCharts alpha
+- **Enhanced Crosshair Display**: Shows Bollinger Bands values with color coding
 - **Status Dashboard**: Real-time indicator status and settings display
 - **Settings Persistence**: Configuration maintained across add/remove cycles
 - **Professional UI**: TradingView-inspired design with smooth animations

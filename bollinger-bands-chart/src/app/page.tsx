@@ -10,6 +10,7 @@ export default function Home() {
   const [data, setData] = useState<OHLCVData[]>([]);
   const [showBollinger, setShowBollinger] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const [crosshairData, setCrosshairData] = useState<Record<string, unknown> | null>(null);
   const [bollingerSettings, setBollingerSettings] = useState<BollingerBandsSettings>({
     inputs: getDefaultBollingerBandsOptions(),
     style: {
@@ -66,6 +67,10 @@ export default function Home() {
     setBollingerSettings(newSettings);
   };
 
+  const handleCrosshairChange = (data: Record<string, unknown> | null) => {
+    setCrosshairData(data);
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       {/* Header */}
@@ -108,6 +113,7 @@ export default function Home() {
               data={data}
               bollingerSettings={bollingerSettings}
               showBollinger={showBollinger}
+              onCrosshairChange={handleCrosshairChange}
             />
           ) : (
             <div className="flex items-center justify-center h-full">
@@ -140,6 +146,88 @@ export default function Home() {
             <span className="ml-2 font-medium">{bollingerSettings.inputs.stdDevMultiplier}</span>
           </div>
         </div>
+        
+        {crosshairData && (
+          <div className="mt-4 pt-4 border-t border-gray-700">
+            <h3 className="text-sm font-medium text-gray-300 mb-2">Crosshair Data</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-xs">
+              <div>
+                <span className="text-gray-400">Time:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.timestamp && typeof crosshairData.timestamp === 'number' 
+                    ? new Date(crosshairData.timestamp).toLocaleString() 
+                    : 'N/A'}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-400">Open:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.open && typeof crosshairData.open === 'number' 
+                    ? crosshairData.open.toFixed(2) 
+                    : 'N/A'}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-400">High:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.high && typeof crosshairData.high === 'number' 
+                    ? crosshairData.high.toFixed(2) 
+                    : 'N/A'}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-400">Low:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.low && typeof crosshairData.low === 'number' 
+                    ? crosshairData.low.toFixed(2) 
+                    : 'N/A'}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-400">Close:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.close && typeof crosshairData.close === 'number' 
+                    ? crosshairData.close.toFixed(2) 
+                    : 'N/A'}
+                </span>
+              </div>
+              <div>
+                <span className="text-gray-400">Volume:</span>
+                <span className="ml-1 font-medium">
+                  {crosshairData.volume && typeof crosshairData.volume === 'number' 
+                    ? crosshairData.volume.toFixed(2) 
+                    : 'N/A'}
+                </span>
+              </div>
+              {showBollinger && typeof crosshairData.basis === 'number' && (
+                <>
+                  <div>
+                    <span className="text-gray-400">BB Basis:</span>
+                    <span className="ml-1 font-medium text-orange-400">
+                      {crosshairData.basis.toFixed(2)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">BB Upper:</span>
+                    <span className="ml-1 font-medium text-blue-400">
+                      {typeof crosshairData.upper === 'number' 
+                        ? crosshairData.upper.toFixed(2) 
+                        : 'N/A'}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-400">BB Lower:</span>
+                    <span className="ml-1 font-medium text-blue-400">
+                      {typeof crosshairData.lower === 'number' 
+                        ? crosshairData.lower.toFixed(2) 
+                        : 'N/A'}
+                    </span>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        )}
 
       </div>
 
